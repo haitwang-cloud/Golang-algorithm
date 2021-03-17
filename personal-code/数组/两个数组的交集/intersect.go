@@ -6,6 +6,9 @@ import (
 )
 
 func intersect(nums1 []int, nums2 []int) []int {
+	if len(nums1) <= 0 || len(nums2) <= 0 {
+		return []int{}
+	}
 	arrDict := map[int]int{}
 	for _, value := range nums1 {
 		arrDict[value]++
@@ -21,6 +24,9 @@ func intersect(nums1 []int, nums2 []int) []int {
 	return nums2[0:index]
 }
 func intersectForSortedArray(nums1 []int, nums2 []int) []int {
+	if len(nums1) <= 0 || len(nums2) <= 0 {
+		return []int{}
+	}
 	sort.Ints(nums1)
 	sort.Ints(nums2)
 	fmt.Println(nums1, nums2)
