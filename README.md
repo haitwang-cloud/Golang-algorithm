@@ -1,1 +1,1 @@
-# Golang-algorithmic-
+# Golang-algorithm
