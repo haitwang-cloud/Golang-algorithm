@@ -1,7 +1,9 @@
 package main
 
-import "container/list"
-
+import (
+	"container/list"
+	"fmt"
+)
 
 type CQueue struct {
 	stackA, stackB *list.List
@@ -32,4 +34,18 @@ func (this *CQueue) DeleteHead() int {
 		return returnValue.Value.(int)
 	}
 	return -1
+}
+
+func main() {
+	obj := Constructor()
+	obj.AppendTail(1)
+	obj.AppendTail(2)
+	value := obj.DeleteHead()
+	fmt.Println(value)
+	obj.AppendTail(3)
+	value = obj.DeleteHead()
+	fmt.Println(value)
+	value = obj.DeleteHead()
+	fmt.Println(value)
+
 }
