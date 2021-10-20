@@ -18,9 +18,19 @@ func fib(n int) int {
 	}
 	return value
 }
+func fibNew(n int) int {
+	const mod int = 1e9 + 7
+	if n < 2 {
+		return n
+	}
+	return (fibNew(n-1) + fibNew(n-2)) % mod
+}
 
 func main() {
 	fmt.Println(fib(5))
+	fmt.Println(fibNew(5))
+	fmt.Println(fib(41))
+	fmt.Println(fibNew(41))
 	fmt.Println(fib(1))
 
 }
