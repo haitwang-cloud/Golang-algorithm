@@ -3,20 +3,21 @@ package main
 import "fmt"
 
 func removeDuplicates(nums []int) int {
-	resultIndex := 0
-	if len(nums) < 0 {
-		return resultIndex
+	length := len(nums)
+	if length == 0 {
+		return 0
 	}
-	for i := 1; i < len(nums); i++ {
-		if nums[i] != nums[resultIndex] {
-			resultIndex++
-			nums[resultIndex] = nums[i]
+	slow := 1
+	for fast := 1; fast < length; fast++ {
+		if nums[fast] != nums[fast-1] {
+			nums[slow] = nums[fast]
+			slow++
 		}
 	}
-	return resultIndex + 1
+	return slow
 }
 
 func main() {
-	test := []int{1, 1, 3, 5, 6}
+	test := []int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
 	fmt.Println(removeDuplicates(test))
 }
