@@ -10,10 +10,9 @@ func findRepeatNumber(nums []int) int {
 		for nums[i] != i {
 			if nums[i] == nums[nums[i]] {
 				return nums[i]
-			} else {
-				index := nums[i]
-				nums[i], nums[index] = nums[index], nums[i]
 			}
+			index := nums[i]
+			nums[i], nums[index] = nums[index], nums[i]
 
 		}
 	}

@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
+
 //https://programmercarl.com/0704.二分查找.html#思路
 
 func search(nums []int, target int) int {
-	first, second := sort.SearchInts(nums, target), binarySearch(nums, target+1)-1
+	first, second := binarySearch(nums, target), binarySearch(nums, target+1)-1
 	if first == len(nums) || nums[first] != target {
 		return 0
 	}
