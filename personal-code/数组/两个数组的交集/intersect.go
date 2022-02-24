@@ -9,14 +9,14 @@ func intersect(nums1 []int, nums2 []int) []int {
 	if len(nums1) <= 0 || len(nums2) <= 0 {
 		return []int{}
 	}
-	arrDict := map[int]int{}
+	arrMap := map[int]int{}
 	for _, value := range nums1 {
-		arrDict[value]++
+		arrMap[value]++
 	}
 	index := 0
 	for _, value := range nums2 {
-		if arrDict[value] > 0 {
-			arrDict[value]--
+		if arrMap[value] > 0 {
+			arrMap[value]--
 			nums2[index] = value
 			index++
 		}
