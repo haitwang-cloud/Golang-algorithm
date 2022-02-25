@@ -6,7 +6,7 @@ import (
 )
 
 func longestCommonPrefix(strs []string) string {
-	if len(strs) <= 0 {
+	if len(strs) == 0 {
 		return ""
 	}
 	prefix := strs[0]
@@ -21,7 +21,41 @@ func longestCommonPrefix(strs []string) string {
 	return prefix
 }
 
+func longestCommonPrefixNew(strs []string) string {
+	//分治
+
+	if len(strs) == 0 {
+		return ""
+	}
+	var lcp func(int, int) string
+	lcp = func(start int, end int) string {
+		if start == end {
+			return strs[start]
+		}
+		mid := (start + end) / 2
+		lcpLeft, lcpRight := lcp(start, mid), lcp(mid+1, end)
+		minLenth := min(len(lcpLeft), len(lcpRight))
+		for index := 0; index < minLenth; index++ {
+			if lcpLeft[index] != lcpRight[index] {
+				return lcpLeft[:index]
+			}
+		}
+		return lcpLeft[:minLenth]
+
+	}
+
+	return lcp(0, len(strs)-1)
+}
+
+func min(x, y int) int {
+	if x < y {
+		return x
+	}
+	return y
+}
+
 func main() {
-	test := []string{"flower", "flow", "flight"}
+	test := []string{"flower", "flow", "flight", "flip"}
 	fmt.Println(longestCommonPrefix(test))
+	fmt.Println(longestCommonPrefixNew(test))
 }
