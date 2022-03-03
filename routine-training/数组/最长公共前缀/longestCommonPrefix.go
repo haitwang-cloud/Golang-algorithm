@@ -34,13 +34,13 @@ func longestCommonPrefixNew(strs []string) string {
 		}
 		mid := (start + end) / 2
 		lcpLeft, lcpRight := lcp(start, mid), lcp(mid+1, end)
-		minLenth := min(len(lcpLeft), len(lcpRight))
-		for index := 0; index < minLenth; index++ {
+		minLength := min(len(lcpLeft), len(lcpRight))
+		for index := 0; index < minLength; index++ {
 			if lcpLeft[index] != lcpRight[index] {
 				return lcpLeft[:index]
 			}
 		}
-		return lcpLeft[:minLenth]
+		return lcpLeft[:minLength]
 
 	}
 

@@ -10,8 +10,8 @@ func rotate(nums []int, k int) {
 }
 
 func reverse(array []int) {
-	for i := 0; i < len(array)/2; i++ {
-		array[i], array[len(array)-i-1] = array[len(array)-i-1], array[i]
+	for i, n := 0, len(array); i < n/2; i++ {
+		array[i], array[n-i-1] = array[n-i-1], array[i]
 	}
 
 }
