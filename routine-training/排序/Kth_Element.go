@@ -2,42 +2,45 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
 )
 
 func findKthLargest(nums []int, k int) int {
-	rand.Seed(time.Now().UnixNano())
-	return quickSelect(nums, 0, len(nums)-1, len(nums)-k)
+	TopKSplit(nums, len(nums)-k, 0, len(nums)-1)
+	return nums[len(nums)-k]
 }
 
-func quickSelect(a []int, l, r, index int) int {
-	q := randomPartition(a, l, r)
-	if q == index {
-		return a[q]
-	} else if q < index {
-		return quickSelect(a, q+1, r, index)
+func Parition(nums []int, start, stop int) int {
+
+	if start >= stop {
+		return -1
 	}
-	return quickSelect(a, l, q-1, index)
+	pivot := nums[start]
+	left, right := start, stop
+	for left < right {
+		for left < right && nums[right] >= pivot {
+			right--
+		}
+		nums[left] = nums[right]
+		for left < right && nums[left] < pivot {
+			left++
+		}
+		nums[right] = nums[left]
+	}
+	nums[left] = pivot
+	return left
 }
 
-func randomPartition(a []int, l, r int) int {
-	i := rand.Int()%(r-l+1) + l
-	a[i], a[r] = a[r], a[i]
-	return partition(a, l, r)
-}
-
-func partition(a []int, l, r int) int {
-	x := a[r]
-	i := l - 1
-	for j := l; j < r; j++ {
-		if a[j] <= x {
-			i++
-			a[i], a[j] = a[j], a[i]
+func TopKSplit(nums []int, k, start, stop int) {
+	if start < stop {
+		index := Parition(nums, start, stop)
+		if index == k {
+			return
+		} else if index < k {
+			TopKSplit(nums, k, index+1, stop)
+		} else {
+			TopKSplit(nums, k, start, index-1)
 		}
 	}
-	a[i+1], a[r] = a[r], a[i+1]
-	return i + 1
 }
 
 func findKthLargestNew(nums []int, k int) int {
@@ -58,12 +61,12 @@ func buildMaxHeap(a []int, heapSize int) {
 }
 
 func maxHeapify(a []int, i, heapSize int) {
-	l, r, largest := i*2+1, i*2+2, i
-	if l < heapSize && a[l] > a[largest] {
-		largest = l
+	left, right, largest := i*2+1, i*2+2, i
+	if left < heapSize && a[left] > a[largest] {
+		largest = left
 	}
-	if r < heapSize && a[r] > a[largest] {
-		largest = r
+	if right < heapSize && a[right] > a[largest] {
+		largest = right
 	}
 	if largest != i {
 		a[i], a[largest] = a[largest], a[i]
