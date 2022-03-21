@@ -55,34 +55,36 @@ func TopKSplit(nums []int, k, start, stop int) {
 	}
 }
 
-//获得前k小的数
-//
-//
-//func TopkSmallest(nums []int, k int) []int {
-//	TopkSplit(nums, k, 0, len(nums)-1)
-//	return nums[:k]
-//}
-//2 获得前k大的数
-//
-//
-//func TopkLargest(nums []int, k int) []int {
-//	TopkSplit(nums, len(nums)-k, 0, len(nums)-1)
-//	return nums[len(nums)-k:]
-//}
-//3 获取第k小的数
-//
-//
-//func TopkSmallestElement(nums []int, k int) int {
-//	TopkSplit(nums, k, 0, len(nums)-1)
-//	return nums[k-1]
-//}
-//4 获取第k大的数
-//
-//
-//func TopkLargestElement(nums []int, k int) int {
-//	TopkSplit(nums, len(nums)-k, 0, len(nums)-1)
-//	return nums[len(nums)-k]
-//}
+/*
+获得前k小的数
+
+
+func TopkSmallest(nums []int, k int) []int {
+	TopkSplit(nums, k, 0, len(nums)-1)
+	return nums[:k]
+}
+2 获得前k大的数
+
+
+func TopkLargest(nums []int, k int) []int {
+	TopkSplit(nums, len(nums)-k, 0, len(nums)-1)
+	return nums[len(nums)-k:]
+}
+3 获取第k小的数
+
+
+func TopkSmallestElement(nums []int, k int) int {
+	TopkSplit(nums, k, 0, len(nums)-1)
+	return nums[k-1]
+}
+4 获取第k大的数
+
+
+func TopkLargestElement(nums []int, k int) int {
+	TopkSplit(nums, len(nums)-k, 0, len(nums)-1)
+	return nums[len(nums)-k]
+}
+*/
 
 func main() {
 	nums1, k := []int{3, 2, 3, 1, 2, 4, 5, 5, 6, 7, 7, 8, 2, 3, 1, 1, 1, 10, 11, 5, 6, 2, 4, 7, 8, 5, 6}, 20
