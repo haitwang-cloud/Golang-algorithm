@@ -7,7 +7,7 @@ import (
 
 func eraseOverlapIntervals(intervals [][]int) int {
 	n := len(intervals)
-	if n == 0 {
+	if len(intervals) == 0 {
 		return 0
 	}
 	sort.Slice(intervals, func(i, j int) bool {
