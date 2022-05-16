@@ -31,8 +31,4 @@ func maxProfitNew(prices []int) int {
 	}
 	return dp0
 }
-func main() {
-	test := []int{1, 2, 3, 4, 5}
-	fmt.Println(maxProfit(test))
-	fmt.Println(maxProfitNew(test))
-}
+c
