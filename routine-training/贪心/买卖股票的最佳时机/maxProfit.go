@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func maxProfit(prices []int) int {
 	profit := 0
 	for i := 1; i < len(prices); i++ {
@@ -31,4 +29,3 @@ func maxProfitNew(prices []int) int {
 	}
 	return dp0
 }
-c

@@ -16,11 +16,12 @@ func mySqrt(x int) int {
 		} else {
 			right = mid - 1
 		}
+
 	}
-	return right
+	return left
 }
 
 func main() {
-	test := 8
+	test := 5
 	fmt.Println(mySqrt(test))
 }
