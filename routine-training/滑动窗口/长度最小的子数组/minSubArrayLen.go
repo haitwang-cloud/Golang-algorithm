@@ -5,6 +5,8 @@ import (
 	"math"
 )
 
+//https://leetcode.cn/problems/minimum-size-subarray-sum/
+
 func minSubArrayLen(target int, nums []int) int {
 	if len(nums) < 1 {
 		return 0
