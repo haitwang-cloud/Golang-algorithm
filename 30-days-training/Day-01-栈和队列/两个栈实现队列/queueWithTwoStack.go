@@ -1,37 +1,39 @@
 package main
 
 import (
-	"container/list"
 	"fmt"
 )
 
 type CQueue struct {
-	stackA, stackB *list.List
+	inStack  []int
+	outStack []int
 }
 
 func Constructor() CQueue {
 	return CQueue{
-		stackA: list.New(),
-		stackB: list.New(),
+		inStack:  []int{},
+		outStack: []int{},
 	}
 
 }
 
 func (this *CQueue) AppendTail(value int) {
-	this.stackA.PushBack(value)
+	this.inStack = append(this.inStack, value)
 
 }
 
 func (this *CQueue) DeleteHead() int {
-	if this.stackB.Len() == 0 {
-		for this.stackA.Len() > 0 {
-			this.stackB.PushBack(this.stackA.Remove(this.stackA.Back()))
+	if len(this.outStack) == 0 {
+		for len(this.inStack) > 0 {
+			this.outStack = append(this.outStack, this.inStack[len(this.inStack)-1])
+			this.inStack = this.inStack[:len(this.inStack)-1]
 		}
 	}
-	if this.stackB.Len() != 0 {
-		returnValue := this.stackB.Back()
-		this.stackB.Remove(returnValue)
-		return returnValue.Value.(int)
+	if len(this.outStack) != 0 {
+		returnValue := this.outStack[len(this.outStack)-1]
+		this.outStack = this.outStack[:len(this.outStack)-1]
+		return returnValue
+
 	}
 	return -1
 }
