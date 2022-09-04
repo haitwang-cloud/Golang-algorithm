@@ -6,14 +6,14 @@ func removeElement(nums []int, val int) int {
 	if len(nums) == 0 {
 		return 0
 	}
-	index := 0
-	for i := 0; i < len(nums); i++ {
-		if nums[i] != val {
-			nums[index] = nums[i]
-			index++
+	slow := 0
+	for fast := 0; fast < len(nums); fast++ {
+		if nums[fast] != val {
+			nums[slow] = nums[fast]
+			slow++
 		}
 	}
-	return index
+	return slow
 }
 
 func main() {

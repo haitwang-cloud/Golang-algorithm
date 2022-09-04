@@ -14,7 +14,7 @@ func minSubArrayLen(target int, nums []int) int {
 	start, end, sum, result := 0, 0, 0, math.MaxInt32
 	for end < len(nums) {
 		sum += nums[end]
-		for sum >= target {
+		for start <= end && sum >= target {
 			subLength := end - start + 1
 			if result > subLength {
 				result = subLength
