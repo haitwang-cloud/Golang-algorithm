@@ -3,17 +3,16 @@ package main
 import "fmt"
 
 func replaceSpace(s string) string {
-	result := ""
-	for _, v := range s {
-		switch v {
-		case ' ':
-			result = result + "%20"
-		default:
-			result = result + string(v)
+	result := make([]byte, 0)
+	strByte := []byte(s)
+	for _, value := range strByte {
+		if value == ' ' {
+			result = append(result, []byte("%20")...)
+		} else {
+			result = append(result, value)
 		}
-
 	}
-	return result
+	return string(result)
 }
 
 func main() {

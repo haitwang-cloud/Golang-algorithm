@@ -29,7 +29,6 @@ func deepCopy(node *Node) *Node {
 }
 
 func copyRandomList(head *Node) *Node {
-	//
 	cachedNode = map[*Node]*Node{}
 	return deepCopy(head)
 }
