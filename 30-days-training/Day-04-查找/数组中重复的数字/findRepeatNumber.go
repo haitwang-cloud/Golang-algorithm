@@ -6,20 +6,19 @@ func findRepeatNumber(nums []int) int {
 	if len(nums) < 1 {
 		return -1
 	}
-	for i := 0; i < len(nums); i++ {
-		for nums[i] != i {
-			if nums[i] == nums[nums[i]] {
-				return nums[i]
+	for index := 0; index < len(nums); index++ {
+		for index != nums[index] {
+			if nums[index] == nums[nums[index]] {
+				return nums[index]
 			}
-			index := nums[i]
-			nums[i], nums[index] = nums[index], nums[i]
-
+			valueIndex := nums[index]
+			nums[index], nums[valueIndex] = nums[valueIndex], nums[index]
 		}
 	}
 	return -1
 }
 
 func main() {
-	test := []int{3, 4, 1, 2, 4}
+	test := []int{3, 4, 2, 1, 1, 0}
 	fmt.Println(findRepeatNumber(test))
 }
