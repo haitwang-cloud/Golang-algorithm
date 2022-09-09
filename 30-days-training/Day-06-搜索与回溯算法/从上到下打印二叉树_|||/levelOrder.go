@@ -1,7 +1,5 @@
 package main
 
-import "container/list"
-
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -9,35 +7,32 @@ type TreeNode struct {
 }
 
 func levelOrder(root *TreeNode) [][]int {
+	ret := [][]int{}
 	if root == nil {
-		return [][]int{}
+		return ret
 	}
-
-	ans, queue := [][]int{}, list.New()
-	queue.PushBack(root)
-
-	for queue.Len() > 0 {
-		currLevel := queue.Len()
-		nodeVal := make([]int, 0, currLevel)
-		for i := 0; i < currLevel; i++ {
-			node := queue.Remove(queue.Front()).(*TreeNode)
-			nodeVal = append(nodeVal, node.Val)
-
+	overallLevel := []*TreeNode{root}
+	for i := 0; len(overallLevel) > 0; i++ {
+		ret = append(ret, []int{})
+		currentLevel := []*TreeNode{}
+		for j := 0; j < len(overallLevel); j++ {
+			node := overallLevel[j]
+			ret[i] = append(ret[i], node.Val)
 			if node.Left != nil {
-				queue.PushBack(node.Left)
+				currentLevel = append(currentLevel, node.Left)
 			}
 			if node.Right != nil {
-				queue.PushBack(node.Right)
+				currentLevel = append(currentLevel, node.Right)
 			}
 		}
-		ans = append(ans, nodeVal)
+		overallLevel = currentLevel
 	}
-	for k := 0; k < len(ans); k++ {
+	for k := 0; k < len(ret); k++ {
 		if k%2 == 1 {
-			for i, j := 0, len(ans[k])-1; i < j; i, j = i+1, j-1 {
-				ans[k][i], ans[k][j] = ans[k][j], ans[k][i]
+			for i, j := 0, len(ret[k])-1; i < j; i, j = i+1, j-1 {
+				ret[k][i], ret[k][j] = ret[k][j], ret[k][i]
 			}
 		}
 	}
-	return ans
+	return ret
 }

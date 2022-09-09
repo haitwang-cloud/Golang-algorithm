@@ -12,15 +12,15 @@ func levelOrder(root *TreeNode) []int {
 		return res
 	}
 	queue = append(queue, root)
-	for i := 0; i < len(queue); i++ {
-		node := queue[i]
+	for index := 0; index < len(queue); index++ {
+		node := queue[index]
 		res = append(res, node.Val)
-		if node.Left != nil {
+		if node.Left!=nil{
 			queue = append(queue, node.Left)
-		}
-		if node.Right != nil {
+		} 
+		if node.Right!=nil{
 			queue = append(queue, node.Right)
-		}
+		} 
 	}
 	return res
 }

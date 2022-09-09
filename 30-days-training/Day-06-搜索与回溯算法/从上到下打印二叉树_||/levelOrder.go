@@ -1,7 +1,5 @@
 package main
 
-import "container/list"
-
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -9,30 +7,25 @@ type TreeNode struct {
 }
 
 func levelOrder(root *TreeNode) [][]int {
+	ret := [][]int{}
 	if root == nil {
-		return [][]int{}
+		return ret
 	}
-
-	ans := [][]int{}
-	queue := list.New()
-	queue.PushBack(root)
-
-	for queue.Len() > 0 {
-		curLevelNodes := queue.Len()
-		nodeVals := make([]int, 0, curLevelNodes)
-		for i := 0; i < curLevelNodes; i++ {
-			node := queue.Remove(queue.Front()).(*TreeNode)
-			nodeVals = append(nodeVals, node.Val)
-
+	overallLevel := []*TreeNode{root}
+	for i := 0; len(overallLevel) > 0; i++ {
+		ret = append(ret, []int{})
+		currentLevel := []*TreeNode{}
+		for j := 0; j < len(overallLevel); j++ {
+			node := overallLevel[j]
+			ret[i] = append(ret[i], node.Val)
 			if node.Left != nil {
-				queue.PushBack(node.Left)
+				currentLevel = append(currentLevel, node.Left)
 			}
 			if node.Right != nil {
-				queue.PushBack(node.Right)
+				currentLevel = append(currentLevel, node.Right)
 			}
 		}
-		ans = append(ans, nodeVals)
+		overallLevel = currentLevel
 	}
-	return ans
-
+	return ret
 }
