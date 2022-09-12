@@ -17,8 +17,8 @@ func maxSubArray(nums []int) int {
 		} else {
 			curSum = nums[index]
 		}
-		if curSum > maxSum{
-			maxSum=curSum
+		if curSum > maxSum {
+			maxSum = curSum
 		}
 	}
 	return maxSum
