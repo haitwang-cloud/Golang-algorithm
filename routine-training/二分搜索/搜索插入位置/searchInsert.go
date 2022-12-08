@@ -2,23 +2,24 @@ package main
 
 import "fmt"
 
+//https: //leetcode.cn/problems/search-insert-position/
+
 func searchInsert(nums []int, target int) int {
-	left, right := 0, len(nums)
-	for left < right {
+	left, right := 0, len(nums)-1
+	for left <= right {
 		mid := left + (right-left)/2
 		if nums[mid] == target {
 			return mid
 		} else if nums[mid] > target {
-			right = mid
-
+			right = mid - 1
 		} else {
 			left = mid + 1
 		}
 	}
-	return right
+	return left
 }
 
 func main() {
-	nums, test := []int{1, 3, 5, 6}, 7
+	nums, test := []int{1, 3, 5, 6}, 5
 	fmt.Println(searchInsert(nums, test))
 }
