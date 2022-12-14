@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// https://leetcode.cn/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof
+
 func minArray(numbers []int) int {
 	if len(numbers) == 0 {
 		return 0

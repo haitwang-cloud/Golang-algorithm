@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// https://leetcode.cn/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof
+
 func minArray(numbers []int) int {
 	if len(numbers) == 0 {
 		return 0
@@ -21,7 +23,7 @@ func minArray(numbers []int) int {
 		} else if numbers[mid] < numbers[right] {
 			right = mid
 		} else {
-			right -= 1
+			right--
 		}
 
 	}

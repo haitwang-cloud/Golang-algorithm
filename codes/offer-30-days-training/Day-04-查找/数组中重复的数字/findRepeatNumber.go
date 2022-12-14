@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/
+
 func findRepeatNumber(nums []int) int {
 	if len(nums) < 1 {
 		return -1
