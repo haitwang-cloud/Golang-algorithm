@@ -10,7 +10,7 @@ import "fmt"
 	空间复杂度O(1)
 */
 
-func simpleSelectSort(nums []int) []int {
+func SimpleSelectSort(nums []int) []int {
 	length := len(nums)
 	for i := 0; i < length; i++ {
 		min := i
@@ -26,5 +26,5 @@ func simpleSelectSort(nums []int) []int {
 
 func main() {
 	nums := []int{1, 4, 2, 7, 9, 6, 5, 8, 3, 10}
-	fmt.Println(simpleSelectSort(nums))
+	fmt.Println(SimpleSelectSort(nums))
 }
