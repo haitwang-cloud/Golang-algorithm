@@ -1,5 +1,14 @@
-package BubbleSort
+package main
 
+import "fmt"
+
+/*
+	冒泡排序不断进行交换，通过交换完成最终的排序
+	最好时间复杂度O(n)
+	最坏时间复杂度O(n^2)
+	平均时间复杂度O(n^2)
+	空间复杂度O(1)
+*/
 func BubbleSortPro(nums []int) []int {
 	length := len(nums)
 	var flag bool
@@ -27,4 +36,9 @@ func BubbleSort(nums []int) []int {
 		}
 	}
 	return nums
+}
+
+func main() {
+	nums := []int{1, 4, 2, 7, 9, 6, 5, 8, 3, 10}
+	fmt.Println(BubbleSort(nums))
 }
