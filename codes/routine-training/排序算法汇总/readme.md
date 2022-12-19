@@ -56,6 +56,6 @@ Running tool: /usr/local/go/bin/go test -benchmem -run=^$ -bench ^BenchmarkQuick
 goos: darwin
 goarch: arm64
 BenchmarkQuickSort
-BenchmarkQuickSort-10            1946053               621.0 ns/op           888 B/op           31 allocs/op
+BenchmarkQuickSort-10           22054752                51.61 ns/op            0 B/op          0 allocs/op
 ```
 ![](sort.webp)
