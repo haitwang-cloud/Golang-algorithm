@@ -4,10 +4,6 @@ import "fmt"
 
 /*
 	冒泡排序不断进行交换，通过交换完成最终的排序
-	最好时间复杂度O(n)
-	最坏时间复杂度O(n^2)
-	平均时间复杂度O(n^2)
-	空间复杂度O(1)
 */
 func BubbleSortPro(nums []int) []int {
 	length := len(nums)
