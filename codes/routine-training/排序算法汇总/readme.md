@@ -50,6 +50,7 @@ goos: darwin
 goarch: arm64
 BenchmarkMergeSortSort
 BenchmarkMergeSortSort-10        2130241               560.2 ns/op           672 B/op             26 allocs
+
 快速排序
 Running tool: /usr/local/go/bin/go test -benchmem -run=^$ -bench ^BenchmarkQuickSort$
 
@@ -57,5 +58,13 @@ goos: darwin
 goarch: arm64
 BenchmarkQuickSort
 BenchmarkQuickSort-10           22054752                51.61 ns/op            0 B/op          0 allocs/op
+
+计数排序
+Running tool: /usr/local/go/bin/go test -benchmem -run=^$ -bench ^BenchmarkCountingSort$
+
+goos: darwin
+goarch: arm64
+BenchmarkCountingSort
+BenchmarkCountingSort-10        18440473                66.13 ns/op          160 B/op          2 allocs/op
 ```
 ![](sort.webp)
