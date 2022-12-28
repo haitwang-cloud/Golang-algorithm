@@ -66,5 +66,14 @@ goos: darwin
 goarch: arm64
 BenchmarkCountingSort
 BenchmarkCountingSort-10        18440473                66.13 ns/op          160 B/op          2 allocs/op
+
+
+Running tool: /usr/local/go/bin/go test -benchmem -run=^$ -bench ^BenchmarkBucketSort$
+
+goos: darwin
+goarch: arm64
+BenchmarkBucketSort
+BenchmarkBucketSort-10           4185409               277.2 ns/op           432 B/op         11 allocs/op
+
 ```
 ![](sort.webp)
