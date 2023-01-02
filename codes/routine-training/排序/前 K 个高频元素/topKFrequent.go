@@ -10,15 +10,16 @@ import (
 
 func topKFrequent(nums []int, k int) []int {
 	//统计每个数字出现的次数
-	occurrences := map[int]int{}
+	count := make(map[int]int)
 	for _, num := range nums {
-		occurrences[num]++
+		count[num]++
 	}
-	//将每个数字和出现的次数放入二维数组中
-	var values [][]int
-	for key, value := range occurrences {
+	//将数字和出现的次数放入二维数组中
+	values := make([][]int, 0)
+	for key, value := range count {
 		values = append(values, []int{key, value})
 	}
+	//将每个数字和出现的次数放入二维数组中
 	ret := make([]int, k)
 	//对二维数组进行快速排序
 	quickSort(values, 0, len(values)-1, ret, 0, k)
@@ -59,7 +60,34 @@ func quickSort(values [][]int, left, right int, ret []int, retIndex, k int) {
 		quickSort(values, pivotIndex+1, right, ret, pivotIndex+1, k)
 	}
 }
+
+func topKFrequentNew(nums []int, k int) (ans []int) {
+	// 确定每个数的频率
+	freq := make(map[int]int)
+	for _, v := range nums {
+		freq[v]++
+	}
+
+	// 将不同频率的元素放入不同桶
+	buckts := make([][]int, len(nums)+1) // 创建桶
+	for k, v := range freq {
+		buckts[v] = append(buckts[v], k)
+	}
+
+	// 从最大桶开始逐步取出高频元素
+	for i := len(buckts) - 1; k > 0; i-- {
+		for _, v := range buckts[i] {
+			ans = append(ans, v)
+			k--
+		}
+	}
+	return
+}
+
+// 链接：https://leetcode.cn/problems/top-k-frequent-elements/solution/bi-guan-fang-ti-jie-geng-kuai-de-fang-fa-lgsc/
+
 func main() {
 	nums1, k := []int{1, 1, 1, 2, 2, 3}, 2
 	fmt.Println(topKFrequent(nums1, k))
+	fmt.Println(topKFrequentNew(nums1, k))
 }
