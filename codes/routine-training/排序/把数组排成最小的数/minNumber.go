@@ -10,7 +10,7 @@ func Parition(arr []string, left, right int) int {
 	compare := func(str1, str2 string) bool {
 		num1, _ := strconv.Atoi(str1 + str2)
 		num2, _ := strconv.Atoi(str2 + str1)
-		return num1 > num2
+		return num1 < num2
 	}
 	if left < right {
 		pivot := arr[left]
@@ -36,21 +36,18 @@ func quickSort(arr []string, left, right int) {
 	}
 }
 
-func largestNumber(nums []int) string {
+func minNumber(nums []int) string {
 	arr := make([]string, len(nums))
 	for i, v := range nums {
 		arr[i] = strconv.Itoa(v)
 	}
 	quickSort(arr, 0, len(arr)-1)
 	result := strings.Join(arr, "")
-	if result[0] == '0' {
-		return "0"
-	}
 	return result
 
 }
 
 func main() {
-	nums := []int{3, 30, 34, 5, 9}
-	fmt.Println(largestNumber(nums))
+	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}
+	fmt.Println(minNumber(nums))
 }
