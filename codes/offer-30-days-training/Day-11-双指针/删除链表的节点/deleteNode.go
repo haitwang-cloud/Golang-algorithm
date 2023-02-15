@@ -13,17 +13,20 @@ type ListNode struct {
 }
 
 func deleteNode(head *ListNode, val int) *ListNode {
-	if head.Val == val {
-		return head.Next
+	if head == nil {
+		return nil
 	}
-	pre, cur := head, head.Next
-	for cur != nil && cur.Val != val {
-		pre, cur = cur, cur.Next
+	dummyHead := &ListNode{}
+	dummyHead.Next = head
+	cur := dummyHead
+	for cur.Next != nil {
+		if cur.Next.Val == val {
+			cur.Next = cur.Next.Next
+		} else {
+			cur = cur.Next
+		}
 	}
-	if cur != nil {
-		pre.Next = cur.Next
-	}
-	return head
+	return dummyHead.Next
 
 }
 
