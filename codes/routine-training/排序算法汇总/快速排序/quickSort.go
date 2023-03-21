@@ -25,27 +25,21 @@ func partition(nums []int, left, right int) int {
 	} else if nums[mid] > nums[right] {
 		nums[right], nums[mid] = nums[mid], nums[right]
 	}
-	pivot := nums[left]
-	for left < right {
-		/*
-			从右往左遍历,判断 nums[right] 是否大于基准数，如果大于则左移 right 指针，
-			直至找到一个小于基准数的元素，将其填入之前的坑中
-		*/
-		for left < right && nums[right] >= pivot {
-			right--
-		}
-		nums[left] = nums[right]
-		/*
-			从左往右遍历,判断 nums[left] 是否小于基准数，如果小于则左移 left 指针，
-			直至找到一个大于基准数的元素，将其填入之前的坑中
-		*/
-		for left < right && nums[left] <= pivot {
-			left++
-		}
-		nums[right] = nums[left]
+	pivot := left
+	index := pivot + 1
+
+	for i := index; i <= right; i++ {
+			if nums[i] < nums[pivot] {
+					swap(nums, i, index)
+					index += 1
+			}
 	}
-	nums[left] = pivot
-	return left
+	swap(nums, pivot, index-1)
+	return index - 1
+}
+
+func swap(nums []int, i, j int) {
+	nums[i], nums[j] = nums[j], nums[i]
 }
 
 func main() {
