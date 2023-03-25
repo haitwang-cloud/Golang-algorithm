@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"os"
-)
-
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -23,24 +18,18 @@ func reverseList(head *ListNode) *ListNode {
 
 }
 
-func reverse(pre, cur *ListNode) *ListNode {
-	if cur == nil {
-		return pre
-	}
-	next := cur.Next
-	cur.Next = pre
-	return reverse(cur, next)
-}
+// func reverse(pre, cur *ListNode) *ListNode {
+// 	if cur == nil {
+// 		return pre
+// 	}
+// 	next := cur.Next
+// 	cur.Next = pre
+// 	return reverse(cur, next)
+// }
 
-func reverseList2(head *ListNode) *ListNode {
-	if head == nil {
-		return nil
-	}
-	return reverse(nil, head)
-}
-
-func main() {
-	originList := &ListNode{1, &ListNode{2, &ListNode{3, &ListNode{4, nil}}}}
-	testResultNew := reverseList(originList)
-	fmt.Fprintf(os.Stdout, "%v / %v / %v ", originList, testResultNew)
-}
+// func reverseList2(head *ListNode) *ListNode {
+// 	if head == nil {
+// 		return nil
+// 	}
+// 	return reverse(nil, head)
+// }
