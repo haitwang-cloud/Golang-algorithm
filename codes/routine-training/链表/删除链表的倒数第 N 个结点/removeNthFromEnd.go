@@ -22,8 +22,3 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	slow.Next = slow.Next.Next
 	return dummyHead.Next
 }
-
-func main() {
-	testList := &ListNode{1, &ListNode{2, &ListNode{3, &ListNode{4, &ListNode{5, nil}}}}} // 1->2->3->4->5
-	removeNthFromEnd(testList, 2)
-}
