@@ -1,10 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
-
-//Definition for singly-linked list.
+// Definition for singly-linked list.
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -38,10 +34,4 @@ func removeElements(head *ListNode, val int) *ListNode {
 		}
 	}
 	return dummyHead.Next
-}
-
-func main() {
-	originList := &ListNode{1, &ListNode{2, &ListNode{3, &ListNode{2, nil}}}}
-	testResultNew := removeElements(originList, 2)
-	fmt.Println(testResultNew)
 }
