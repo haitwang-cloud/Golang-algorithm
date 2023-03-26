@@ -8,7 +8,9 @@ type ListNode struct {
 func getKthFromEnd(head *ListNode, k int) *ListNode {
 	fast, slow := head, head
 	for i := 0; i < k; i++ {
-		fast = fast.Next
+		if fast.Next != nil {
+			fast = fast.Next
+		}
 	}
 	for fast != nil {
 		slow = slow.Next
