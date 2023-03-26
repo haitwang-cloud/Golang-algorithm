@@ -5,9 +5,11 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// https://leetcode.cn/problems/c32eOV/
+
 func detectCycle(head *ListNode) *ListNode {
 	var fast, slow *ListNode
-    fast, slow = head, head
+	fast, slow = head, head
 	for fast != nil && fast.Next != nil {
 		fast = fast.Next.Next
 		slow = slow.Next
