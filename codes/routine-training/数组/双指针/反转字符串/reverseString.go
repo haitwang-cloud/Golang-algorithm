@@ -1,5 +1,6 @@
 package main
 
+// https://leetcode.cn/problems/reverse-string/submissions/
 func reverseString(s []byte) {
 	if len(s) < 2 {
 		return

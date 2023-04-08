@@ -1,5 +1,6 @@
 package main
 
+// https://leetcode.cn/problems/move-zeroes/
 func moveZeroes(nums []int) {
 	slow, fast := 0, 0
 	for fast < len(nums) {

@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
-
+// https://leetcode.cn/problems/valid-palindrome-ii/submissions/
 func validPalindrome(s string) bool {
 	left, right := 0, len(s)-1
 	for left < right {
@@ -13,9 +10,7 @@ func validPalindrome(s string) bool {
 		left++
 		right--
 	}
-
 	return true
-
 }
 
 func isPalindrome(s string, left, right int) bool {
@@ -27,9 +22,4 @@ func isPalindrome(s string, left, right int) bool {
 		right--
 	}
 	return true
-}
-
-func main() {
-	test := "aba"
-	fmt.Println(validPalindrome(test))
 }
