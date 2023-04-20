@@ -13,6 +13,11 @@ func Test_maxDepth(t *testing.T) {
 	}{
 		{
 			name: "test1",
+			args: args{},
+			want: 0,
+		},
+		{
+			name: "test2",
 			args: args{
 				root: &TreeNode{
 					Val: 3,
