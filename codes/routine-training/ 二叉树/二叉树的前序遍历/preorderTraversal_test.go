@@ -28,6 +28,10 @@ func Test_preorderTraversal(t *testing.T) {
 				},
 			},
 			want: []int{1, 2, 3},
+		}, {
+			name: "test2",
+			args: args{},
+			want: []int{},
 		},
 	}
 	for _, tt := range tests {
