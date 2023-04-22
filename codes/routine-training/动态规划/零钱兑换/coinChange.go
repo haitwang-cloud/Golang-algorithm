@@ -10,9 +10,9 @@ func coinChange(coins []int, amount int) int {
 
 	// 初始化dp[0]为0
 	dp[0] = 0
-
+	// 外层 for 循环在遍历所有状态的所有取值
 	for i := 1; i <= amount; i++ {
-		// 遍历每个硬币的面值
+		// 遍历每个硬币的面值,内层 for 循环在求所有选择的最小值
 		for _, coin := range coins {
 			if coin <= i {
 				// 计算dp[i]的值
@@ -20,12 +20,10 @@ func coinChange(coins []int, amount int) int {
 			}
 		}
 	}
-
 	if dp[amount] > amount {
 		return -1
-	} else {
-		return dp[amount]
 	}
+	return dp[amount]
 }
 
 // 求两个数的最小值
