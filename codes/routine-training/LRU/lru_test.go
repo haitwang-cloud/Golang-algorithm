@@ -5,6 +5,11 @@ import (
 	"testing"
 )
 
+/*
+该测试用例测试了LRUCache的Put、Get、evict和Len方法。
+在测试中，我们在容量为2的LRUCache中插入了四个键值对，
+并检查它们是否按照预期逐出。最后，我们使用Len方法检查缓存中的实际数量。
+*/
 func TestLRUCache(t *testing.T) {
 	cache := NewLRUCache(2)
 	cache.Put(1, "one")
