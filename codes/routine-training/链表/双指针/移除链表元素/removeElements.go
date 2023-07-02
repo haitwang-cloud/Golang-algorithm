@@ -6,32 +6,20 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func removeElementsRecursion(head *ListNode, val int) *ListNode {
-	if head == nil {
-		return nil
-	}
-	head.Next = removeElements(head.Next, val)
-	if head.Val == val {
-		return head.Next
-	} else {
-		return head
-	}
-
-}
-
+// https://leetcode.cn/problems/remove-linked-list-elements/
 func removeElements(head *ListNode, val int) *ListNode {
 	if head == nil {
 		return nil
 	}
-	dummyHead := &ListNode{}
-	dummyHead.Next = head
-	cur := dummyHead
+	dm := &ListNode{Next: head, Val: -1}
+	cur := dm
 	for cur.Next != nil {
 		if cur.Next.Val == val {
 			cur.Next = cur.Next.Next
 		} else {
 			cur = cur.Next
 		}
+
 	}
-	return dummyHead.Next
+	return dm.Next
 }

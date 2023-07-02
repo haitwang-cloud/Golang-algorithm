@@ -5,9 +5,11 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// https://leetcode.cn/problems/middle-of-the-linked-list/
+
 func middleNode(head *ListNode) *ListNode {
-	fast, slow := head, head
-	for fast != nil && fast.Next != nil {
+	slow, fast := head, head
+	for fast.Next != nil && fast != nil {
 		fast = fast.Next.Next
 		slow = slow.Next
 	}

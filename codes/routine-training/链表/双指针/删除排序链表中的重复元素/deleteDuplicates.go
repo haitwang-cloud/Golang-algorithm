@@ -10,7 +10,8 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
 	}
-	fast, slow := head, head
+	dm := &ListNode{Next: head, Val: -1}
+	fast, slow := dm.Next, dm.Next
 	for fast != nil {
 		if fast.Val != slow.Val {
 			// slow指针与快指针相等的值赋值为快指针的值
@@ -22,5 +23,5 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	}
 	// 断开与后面重复元素的连接
 	slow.Next = nil
-	return head
+	return dm.Next
 }
