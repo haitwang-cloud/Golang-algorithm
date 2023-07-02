@@ -1,5 +1,7 @@
 package main
 
+// https://leetcode.cn/problems/merge-two-sorted-lists/
+
 // Definition for singly-linked list.
 type ListNode struct {
 	Val  int
@@ -22,11 +24,8 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	if p1 != nil {
 		p.Next = p1
 	}
-
 	if p2 != nil {
 		p.Next = p2
 	}
-
 	return dummyHead.Next
-
 }
