@@ -204,6 +204,9 @@
         │   └── 二叉树的最大深度
         │       ├── maxDepth.go
         │       └── maxDepth_test.go
+        ├── LRU
+        │   ├── lru.go
+        │   └── lru_test.go
         ├── README.md
         ├── 排序
         │   ├── 前 K 个高频元素
@@ -277,6 +280,9 @@
         │   │   ├── 分割链表
         │   │   │   ├── partition.go
         │   │   │   └── partition_test.go
+        │   │   ├── 奇偶链表
+        │   │   │   ├── oddEvenList.go
+        │   │   │   └── oddEvenList_test.go
         │   │   ├── 环形链表
         │   │   │   ├── hasCycle.go
         │   │   │   └── hasCycle_test.go
@@ -286,9 +292,6 @@
         │   │   ├── 移除链表元素
         │   │   │   ├── removeElements.go
         │   │   │   └── removeElements_test.go
-        │   │   ├── 链表中倒数第k个节点
-        │   │   │   ├── getKthFromEnd.go
-        │   │   │   └── getKthFromEnd_test.go
         │   │   ├── 链表的中间结点
         │   │   │   ├── middleNode.go
         │   │   │   └── middleNode_test.go
@@ -298,6 +301,9 @@
         │   │   ├── 删除链表的倒数第 N 个结点
         │   │   │   ├── removeNthFromEnd.go
         │   │   │   └── removeNthFromEnd_test.go
+        │   │   ├── 删除链表的中间节点
+        │   │   │   ├── deleteMiddle.go
+        │   │   │   └── deleteMiddle_test.go
         │   │   ├── 链表中环的入口节点
         │   │   │   ├── detectCycle.go
         │   │   │   └── detectCycle_test.go
@@ -328,11 +334,13 @@
         │       └── reverseVowels.go
         ├── 二分搜索
         │   ├──  x 的平方根 
-        │   │   └── mySqrt.go
+        │   │   ├── mySqrt.go
+        │   │   └── mySqrt_test.go
         │   ├── 供暖器
         │   │   └── findRadius.go
         │   ├── 二分查找
-        │   │   └── search.go
+        │   │   ├── search.go
+        │   │   └── search_test.go
         │   ├── 狒狒吃香蕉
         │   │   └── minEatingSpeed.go
         │   ├── 搜索插入位置
@@ -341,9 +349,17 @@
         │   │   └── minArray.go
         │   └── 在排序数组中查找元素的第一个和最后一个位置
         │       └── searchRange.go
+        ├── 动态规划
+        │   ├── 斐波那契
+        │   │   ├── fib.go
+        │   │   └── fib_test.go
+        │   └── 零钱兑换
+        │       ├── coinChange.go
+        │       └── coinChange_test.go
         ├── 求和问题
         │   ├── 三数之和
-        │   │   └── threeSum.go
+        │   │   ├── threeSum.go
+        │   │   └── threeSum_test.go
         │   ├── 两数之和
         │   │   └── twoSum.go
         │   └── 两数之和(有序数组)
