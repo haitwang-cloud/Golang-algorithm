@@ -1,5 +1,6 @@
 package main
 
+// https://leetcode.cn/problems/remove-nth-node-from-end-of-list/
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -7,9 +8,8 @@ type ListNode struct {
 
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
 
-	dummyHead := &ListNode{}
-	dummyHead.Next = head
-	fast, slow := dummyHead, dummyHead
+	dm := &ListNode{-1, head}
+	fast, slow := dm, dm
 	for i := 0; i < n; i++ {
 		if fast.Next != nil {
 			fast = fast.Next
@@ -20,5 +20,5 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 		slow = slow.Next
 	}
 	slow.Next = slow.Next.Next
-	return dummyHead.Next
+	return dm.Next
 }

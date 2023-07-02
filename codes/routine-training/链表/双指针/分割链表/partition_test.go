@@ -18,7 +18,7 @@ func Test_partition(t *testing.T) {
 		{
 			name: "test1",
 			args: args{
-				head: &ListNode{1, &ListNode{2, &ListNode{4, nil}}},
+				head: &ListNode{1, &ListNode{4, &ListNode{2, nil}}},
 				x:    3,
 			},
 			want: &ListNode{1, &ListNode{2, &ListNode{4, nil}}},
