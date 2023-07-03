@@ -25,7 +25,6 @@ func binarySearch(nums []int, target int) int {
 			right = mid - 1
 		}
 	}
-
 	return left
 
 }
