@@ -9,8 +9,7 @@ func longestPalindrome(s string) string {
 	*/
 	res := ""
 	for i := 0; i < len(s); i++ {
-		s1 := palindrome(s, i, i)
-		s2 := palindrome(s, i, i+1)
+		s1, s2 := palindrome(s, i, i), palindrome(s, i, i+1)
 		if len(s1) > len(res) {
 			res = s1
 		}
@@ -18,17 +17,13 @@ func longestPalindrome(s string) string {
 			res = s2
 		}
 	}
-
 	return res
-
 }
 
-func palindrome(s string, left, right int) string {
-
-	for left >= 0 && right < len(s) && s[left] == s[right] {
-		// 向两边展开
-		left--
-		right++
+func palindrome(s string, l, r int) string {
+	for l >= 0 && r < len(s) && s[l] == s[r] {
+		l--
+		r++
 	}
-	return s[left+1 : right]
+	return s[l+1 : r]
 }

@@ -1,6 +1,6 @@
 package main
 
-// https://leetcode.cn/problems/valid-palindrome-ii/submissions/
+// https://leetcode.cn/problems/valid-palindrome-ii/
 func validPalindrome(s string) bool {
 	left, right := 0, len(s)-1
 	for left < right {
