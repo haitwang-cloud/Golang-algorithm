@@ -11,20 +11,22 @@ type TreeNode struct {
 
 func diameterOfBinaryTree(root *TreeNode) int {
 	maxDiameter := 0
-	maxDiameter = maxDepth(root, &maxDiameter)
+
+	var maxDepth func(node *TreeNode) int
+	maxDepth = func(node *TreeNode) int {
+		if node == nil {
+			return 0
+		}
+		leftMaxDepth := maxDepth(node.Left)
+		rightMaxDepth := maxDepth(node.Right)
+		// 后序遍历位置顺便计算最大直径
+		maxDiameter = max(maxDiameter, leftMaxDepth+rightMaxDepth)
+		// 在每次递归调用 maxDepth 时，你需要计算左子树和右子树的最大深度，并将它们加一
+		return max(leftMaxDepth, rightMaxDepth) + 1
+
+	}
+	maxDepth(root)
 	return maxDiameter
-}
-func maxDepth(node *TreeNode, maxDiameter *int) int {
-	if node == nil {
-		return 0
-	}
-	leftMax := maxDepth(node.Left, maxDiameter)
-	rightMax := maxDepth(node.Right, maxDiameter)
-	curDiameter := leftMax + rightMax
-	if curDiameter > *maxDiameter {
-		*maxDiameter = curDiameter
-	}
-	return max(leftMax, rightMax) + 1
 }
 
 func max(a, b int) int {

@@ -20,7 +20,7 @@ func Test_diameterOfBinaryTree(t *testing.T) {
 				},
 			},
 		},
-		want: 2,
+		want: 1,
 	},
 		{
 			name: "test2",
