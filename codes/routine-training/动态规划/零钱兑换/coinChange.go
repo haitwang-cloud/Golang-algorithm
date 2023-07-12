@@ -1,5 +1,6 @@
 package main
 
+// https://leetcode.cn/problems/coin-change/
 /*
 假设你有面值为 1, 2, 5 的硬币，你想求 amount = 11 时的最少硬币数（原问题）
 ，如果你知道凑出 amount = 10, 9, 6 的最少硬币数（子问题），
@@ -19,11 +20,10 @@ func coinChange(coins []int, amount int) int {
 	for i := 0; i < len(dp); i++ {
 		// 内层 for 循环在求所有选择的最小值
 		for _, coin := range coins {
-			// 子问题无解，跳过
-			if i-coin < 0 {
-				continue
+			// 当前硬币面额小于数额
+			if coin <= i {
+				dp[i] = min(dp[i], dp[i-coin]+1)
 			}
-			dp[i] = min(dp[i], dp[i-coin]+1)
 		}
 	}
 	if dp[amount] == amount+1 {
