@@ -1,6 +1,5 @@
 package main
 
-import "fmt"
 
 //https://leetcode.cn/problems/binary-search/
 
@@ -22,9 +21,4 @@ func search(nums []int, target int) int {
 
 	return -1
 
-}
-
-func main() {
-	nums, test := []int{-1, 0, 3, 5, 9, 12}, 9
-	fmt.Println(search(nums, test))
 }
