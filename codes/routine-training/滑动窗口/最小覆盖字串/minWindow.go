@@ -2,7 +2,7 @@ package main
 
 import "math"
 
-
+//https://leetcode.cn/problems/minimum-window-substring/
 func minWindow(s string, t string) string {
 	//初始化 need和slideWindow为 map
 	need := make(map[byte]int)   //need为锁需要的字符数

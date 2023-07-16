@@ -1,5 +1,6 @@
 package main
 
+// https://leetcode.cn/problems/permutation-in-string/
 func checkInclusion(s1 string, s2 string) bool {
 
 	need := make(map[byte]int)
