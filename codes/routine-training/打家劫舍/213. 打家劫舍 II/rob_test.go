@@ -14,9 +14,9 @@ func Test_rob(t *testing.T) {
 		{
 			name: "test1",
 			args: args{
-				nums: []int{2, 7, 9, 3, 1},
+				nums: []int{1, 2, 3, 1},
 			},
-			want: 12,
+			want: 4,
 		},
 	}
 	for _, tt := range tests {

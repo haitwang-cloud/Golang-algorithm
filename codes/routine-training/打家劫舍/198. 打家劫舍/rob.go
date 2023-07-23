@@ -1,6 +1,25 @@
-package main
+package rob
+
+// https://leetcode.cn/problems/house-robber/
 
 func rob(nums []int) int {
+	if len(nums) < 1 {
+		return nums[0]
+	}
+
+	dp_i_1, dp_i_2 := 0, 0
+	dp_i := 0
+
+	for i := len(nums) - 1; i >= 0; i-- {
+		dp_i = max(dp_i_1, dp_i_2+nums[i])
+		dp_i_2, dp_i_1 = dp_i_1, dp_i
+	}
+
+	return dp_i
+
+}
+
+func robOld(nums []int) int {
 
 	memo := make([]int, len(nums))
 	for i := 0; i < len(nums); i++ {
