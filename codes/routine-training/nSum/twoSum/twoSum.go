@@ -1,31 +1,27 @@
 package twoSum
 
 func twoSum(numbers []int, target int) [][]int {
+	res := make([][]int, 0)
 	if len(numbers) < 2 {
-		return [][]int{}
+		return res
 	}
-	res := [][]int{}
 	left, right := 0, len(numbers)-1
 	for left < right {
-		l, r := numbers[left], numbers[right]
-		sum := l + r
+		sum := numbers[left] + numbers[right]
 		if sum > target {
-			for left < right && l == numbers[left] {
-				left++
-			}
+			right--
 		} else if sum < target {
-			for left < right && r == numbers[right] {
-				right--
-			}
+			left++
 		} else {
 			res = append(res, []int{left, right})
-			for left < right && l == numbers[left] {
+			for left < right && numbers[left] == numbers[left+1] {
 				left++
 			}
-			for left < right && r == numbers[right] {
+			for left < right && numbers[right] == numbers[right-1] {
 				right--
 			}
-
+			left++
+			right--
 		}
 	}
 	return res
